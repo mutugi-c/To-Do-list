@@ -26,7 +26,6 @@ h1 {
 .to-do-container {
   background-color: #fff;
   border-radius: 2px;
-  height: fit-content;
   margin: 250px auto;
   overflow: hidden;
   width: 350px;
