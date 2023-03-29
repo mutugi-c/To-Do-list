@@ -40,9 +40,10 @@ h1 {
 
 /* Form */
 .to-do-form {
+  cursor: pointer;
   display: flex;
   justify-content: space-between;
-  padding: 0 1.5rem 0 1rem;
+  padding: 0 1rem 0 1rem;
 }
 
 .to-do-add {
@@ -82,10 +83,15 @@ h1 {
   width: 100%;
 }
 
-/* Icon check */
+/* Icon */
 .fa-check {
   color: #5490ffda;
   display: none;
+}
+
+.fa-sync-alt,
+.fa-arrow-left {
+  opacity: 0.5;
 }
 
 /* Vertical ellipsis */
