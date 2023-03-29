@@ -26,8 +26,9 @@ h1 {
 .to-do-container {
   background-color: #fff;
   border-radius: 2px;
-  height: 300px;
+  height: fit-content;
   margin: 250px auto;
+  overflow: hidden;
   width: 350px;
 }
 
@@ -43,7 +44,7 @@ h1 {
   cursor: pointer;
   display: flex;
   justify-content: space-between;
-  padding: 0 1rem 0 1rem;
+  padding: 0 0.5rem 0 1rem;
 }
 
 .to-do-add {
@@ -81,6 +82,12 @@ h1 {
   padding: 1rem;
   opacity: 0.5;
   width: 100%;
+  transition: all 0.5s;
+}
+
+.clear-completed:hover {
+  text-decoration: underline;
+  opacity: 0.8;
 }
 
 /* Icon */
