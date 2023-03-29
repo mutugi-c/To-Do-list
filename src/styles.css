@@ -40,7 +40,9 @@ h1 {
 
 /* Form */
 .to-do-form {
-  padding: 0 2.5rem 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1.5rem 0 1rem;
 }
 
 .to-do-add {
@@ -50,6 +52,7 @@ h1 {
 
 /* List */
 .to-do-item {
+  align-items: center;
   display: grid;
   grid-template-columns: 3fr 25fr 1fr;
   padding: 1rem;
