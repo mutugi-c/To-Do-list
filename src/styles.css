@@ -10,7 +10,7 @@ li {
 
 /* Typograpphy */
 body {
-  background-color: bisque;
+  background-color: #c1c1c3;
   color: #545862;
   font-size: 1rem;
   font-family: "Open Sans", sans-serif;
@@ -33,6 +33,7 @@ h1 {
 
 /* Heading */
 .to-do-header {
+  border-bottom: 1px solid #c1c1c3;
   display: flex;
   justify-content: space-between;
   padding: 1rem;
@@ -40,15 +41,18 @@ h1 {
 
 /* Form */
 .to-do-form {
+  align-items: center;
+  border-bottom: 1px solid #c1c1c3;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
-  padding: 0 0.5rem 0 1rem;
+  padding: 0.9rem 0.5rem 0.9rem 1rem;
 }
 
 .to-do-add {
   border: 0;
   font-style: italic;
+  outline: none;
 }
 
 /* List */
