@@ -93,7 +93,7 @@ h1 {
   opacity: 0.8;
 }
 
-/* Icon */
+/* Icons */
 .fa-check {
   color: #5490ffda;
   display: none;
@@ -104,7 +104,6 @@ h1 {
   opacity: 0.5;
 }
 
-/* Vertical ellipsis */
 .fa-ellipsis-v {
   color: #c1c1c3;
   transition: all 0.5s;
@@ -113,6 +112,15 @@ h1 {
 .fa-ellipsis-v:hover {
   cursor: move;
   opacity: 0.3;
+}
+
+.fa-ellipsis-v.hide {
+  display: none;
+}
+
+.fa-trash {
+  color: rgb(197, 85, 85);
+  display: none;
 }
 
 /* Task description */
