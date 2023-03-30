@@ -9,16 +9,16 @@ class ManageTasks {
     const newTask = {
       description: taskDescrption,
       completed: false,
-      index: taskArr.length,
+      index: this.taskArr.length,
     }
-    taskArr.push(newTask);
+    this.taskArr.push(newTask);
   }
 
   removeTask(index) {
     this.taskArr.splice(index, 1);
 
     // Update remaining properties' indices
-    this.taskArr.forEach(task => {
+    this.taskArr.forEach((task, i) => {
       task.index = i;
     });
   }
@@ -26,6 +26,11 @@ class ManageTasks {
   editTask(index, newDescription) {
     this.taskArr[index].description = newDescription;
   }
+
+  completedTask(index) {
+    this.taskArr[index] = true;
+  }
 }
 
 export default ManageTasks;
+
