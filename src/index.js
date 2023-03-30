@@ -1,24 +1,9 @@
 import './styles.css';
-
-const tasksArr = [
-  {
-    description: 'Write code',
-    completed: false,
-    index: 0,
-  },
-  {
-    description: 'Watch football',
-    completed: false,
-    index: 1,
-  },
-  {
-    description: 'Sleep',
-    completed: true,
-    index: 2,
-  },
-];
+import ManageTasks from './manage_tasks.js';
 
 const toDoList = document.getElementById('to-do-list');
+const toDoForm = document.getElementById('to-do-form');
+const toDoInput = document.getElementById('to-do-input');
 
 function populateTaskList(arr) {
   arr.forEach((task) => {
@@ -35,4 +20,19 @@ function populateTaskList(arr) {
   });
 }
 
-populateTaskList(tasksArr);
+const taskManager = new ManageTasks([]);
+
+toDoForm.addEventListener('submit', event => {
+  event.preventDefault();
+
+  const taskDescription = toDoInput.value.trim();
+  if (taskDescription !== '') {
+    taskManager.addTask(taskDescription);
+
+    toDoInput.value = '';
+    const newTask = [taskManager.taskArr[taskManager.taskArr.length - 1]];
+    populateTaskList(newTask);
+  }
+})
+
+populateTaskList(taskManager.taskArr);
