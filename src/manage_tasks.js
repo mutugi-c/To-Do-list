@@ -22,6 +22,10 @@ class ManageTasks {
       task.index = i;
     });
   }
+
+  editTask(index, newDescription) {
+    this.taskArr[index].description = newDescription;
+  }
 }
 
 export default ManageTasks;
