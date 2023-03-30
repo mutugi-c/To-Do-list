@@ -46,7 +46,7 @@ h1 {
   cursor: pointer;
   display: flex;
   justify-content: space-between;
-  padding: 0.9rem 0.5rem 0.9rem 1rem;
+  padding: 0.9rem 0.9rem 0.9rem 1rem;
 }
 
 input {
@@ -117,6 +117,12 @@ input {
   opacity: 0.8;
 }
 
+#to-do-submit {
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
 /* Icons */
 .fa-check {
   color: #5490ffda;
@@ -142,9 +148,14 @@ input {
   display: none;
 }
 
-.fa-trash {
+.trash-icon {
   color: rgb(197, 85, 85);
   display: none;
+  width: 0.625rem;
+}
+
+.to-do-item.active .trash-icon {
+  display: inline-block;
 }
 
 /* Task description */

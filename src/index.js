@@ -15,7 +15,7 @@ function populateTaskList(arr) {
     </button>
     <span class="task-description" contenteditable="true">${task.description}</span>
     <span class="fas fa-ellipsis-v"></span>
-    <span class="fas fa-trash"></span>
+    <span class="fas fa-trash trash-icon hide"></span>
     `;
     toDoList.appendChild(toDoItem);
 
@@ -26,16 +26,22 @@ function populateTaskList(arr) {
         document.querySelectorAll('.to-do-item').forEach((item) => {
           item.classList.remove('active');
           item.querySelector('.fa-ellipsis-v').classList.remove('hide');
-          item.querySelector('.fa-trash').classList.add('hide');
+          item.querySelector('.trash-icon').classList.add('hide');
           item.style.background = '';
         });
 
         // Add the 'active' class to the latest selected item
         toDoItem.classList.add('active');
         toDoItem.querySelector('.fa-ellipsis-v').classList.add('hide');
-        toDoItem.querySelector('.fa-trash').classList.remove('hide');
+        toDoItem.querySelector('.trash-icon').classList.remove('hide');
         toDoItem.style.background = '#fffbc8';
       }
+    });
+
+    // Add event listener to trash icon
+    toDoItem.querySelector('.trash-icon').addEventListener('click', () => {
+      taskManager.removeTask(task.id);
+      toDoItem.remove();
     });
   });
 }
@@ -55,12 +61,5 @@ toDoForm.addEventListener('submit', event => {
     populateTaskList(newTask);
   }
 })
-
-
-
-
-
-
-
 
 populateTaskList(taskManager.taskArr);
