@@ -13,6 +13,15 @@ class ManageTasks {
     }
     taskArr.push(newTask);
   }
+
+  removeTask(index) {
+    this.taskArr.splice(index, 1);
+
+    // Update remaining properties' indices
+    this.taskArr.forEach(task => {
+      task.index = i;
+    });
+  }
 }
 
 export default ManageTasks;
