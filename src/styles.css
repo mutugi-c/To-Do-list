@@ -49,19 +49,43 @@ h1 {
   padding: 0.9rem 0.5rem 0.9rem 1rem;
 }
 
-.to-do-add {
-  border: 0;
-  font-style: italic;
+input {
+  background: transparent;
+  border: none;
   outline: none;
+  box-shadow: none;
+}
+
+.to-do-add {
+  font-style: italic;
 }
 
 /* List */
 .to-do-item {
+  position: relative;
+  display: flex;
   align-items: center;
-  display: grid;
-  grid-template-columns: 3fr 25fr 1fr;
   padding: 1rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.to-do-item .check-button {
+  margin-right: 1rem;
+}
+
+.to-do-item .task-description {
+  flex-grow: 1;
+  outline: none;
+  position: relative;
+  z-index: 1;
+}
+
+.to-do-item .edit-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
 }
 
 /* Buttons */

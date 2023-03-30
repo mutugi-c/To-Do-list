@@ -13,13 +13,13 @@ function populateTaskList(arr) {
     <button class="check-button">
       <span class="fas fa-check"></span>
     </button>
-    <span class="task-description">${task.description}</span>
+    <span class="task-description" contenteditable="true">${task.description}</span>
     <span class="fas fa-ellipsis-v"></span>
     <span class="fas fa-trash"></span>
     `;
     toDoList.appendChild(toDoItem);
 
-
+    // Change list item behaviour on click
     toDoItem.addEventListener('click', () => {
       if (!toDoItem.classList.contains('active')) {
         // Remove the 'active' class from all other items
@@ -37,7 +37,6 @@ function populateTaskList(arr) {
         toDoItem.style.background = '#fffbc8';
       }
     });
-
   });
 }
 
