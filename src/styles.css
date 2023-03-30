@@ -40,7 +40,7 @@ h1 {
 }
 
 /* Form */
-.to-do-form {
+#to-do-form {
   align-items: center;
   border-bottom: 1px solid #c1c1c3;
   cursor: pointer;
