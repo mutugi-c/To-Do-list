@@ -1,8 +1,8 @@
 const taskArr = [];
 
 class ManageTasks {
-  constructor(taskArr) {
-    this.taskArr = taskArr;
+  constructor() {
+    this.taskArr = this.loadTasksFromLocalStorage();
   }
 
   addTask(taskDescrption) {
@@ -31,7 +31,8 @@ class ManageTasks {
   }
 
   completedTask(index) {
-    this.taskArr[index] = true;
+    this.taskArr[index].completed = true;
+    this.storeTasksInLocalStorage();
   }
 
   storeTasksInLocalStorage() {
@@ -41,8 +42,9 @@ class ManageTasks {
   loadTasksFromLocalStorage() {
     const storedTasks = JSON.parse(localStorage.getItem('tasks'));
     if (storedTasks) {
-      this.taskArr = storedTasks;
+      return storedTasks;
     }
+    return [];
   }
 }
 
