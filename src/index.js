@@ -19,6 +19,19 @@ function populateTaskList(arr) {
     `;
     toDoList.appendChild(toDoItem);
 
+    const taskDescription = toDoItem.querySelector('.task-description');
+
+    // Save edited task on enter key press
+    taskDescription.addEventListener('keypress', (event) => {
+      if (event.key === 'Enter') {
+        const index = task.index;
+        const newDescription = taskDescription.textContent.trim();
+        taskManager.editTask(index, newDescription);
+        // Remove focus from the edited element
+        taskDescription.blur();
+      }
+    });
+
     // Change list item behaviour on click
     toDoItem.addEventListener('click', () => {
       if (!toDoItem.classList.contains('active')) {
@@ -35,12 +48,15 @@ function populateTaskList(arr) {
         toDoItem.querySelector('.fa-ellipsis-v').classList.add('hide');
         toDoItem.querySelector('.trash-icon').classList.remove('hide');
         toDoItem.style.background = '#fffbc8';
+
+        // Focus on the task description element for editing
+        taskDescription.focus();
       }
     });
 
     // Add event listener to trash icon
     toDoItem.querySelector('.trash-icon').addEventListener('click', () => {
-      taskManager.removeTask(task.id);
+      taskManager.removeTask(task.index);
       toDoItem.remove();
     });
   });
