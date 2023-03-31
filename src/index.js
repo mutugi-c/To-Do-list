@@ -12,9 +12,7 @@ function populateTaskList(arr) {
     const toDoItem = document.createElement('li');
     toDoItem.classList.add('to-do-item');
     toDoItem.innerHTML = `
-    <button class="check-button">
-      <span class="fas fa-check"></span>
-    </button>
+    <input type="checkbox" class="check-button" />s
     <span class="task-description" contenteditable="true">${task.description}</span>
     <span class="fas fa-ellipsis-v"></span>
     <span class="fas fa-trash trash-icon hide"></span>
