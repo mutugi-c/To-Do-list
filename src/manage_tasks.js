@@ -7,7 +7,7 @@ class ManageTasks {
     const newTask = {
       description: taskDescrption,
       completed: false,
-      index: this.taskArr.length,
+      index: this.taskArr.length + 1,
     };
 
     this.taskArr.push(newTask);
@@ -19,7 +19,7 @@ class ManageTasks {
 
     // Update remaining properties' indices
     this.taskArr.forEach((task, i) => {
-      task.index = i;
+      task.index = i + 1;
     });
     this.storeTasksInLocalStorage();
   }
@@ -31,6 +31,7 @@ class ManageTasks {
 
   completedTask(index) {
     this.taskArr[index].completed = true;
+    this.taskArr[index - 1].completed = true;
     this.storeTasksInLocalStorage();
   }
 
@@ -42,7 +43,10 @@ class ManageTasks {
   loadTasksFromLocalStorage() {
     const storedTasks = JSON.parse(window.localStorage.getItem('tasks'));
     if (storedTasks) {
-      return storedTasks;
+      return storedTasks.map((task) => {
+        task.index += 1;
+        return task;
+      });
     }
     return [];
   }
