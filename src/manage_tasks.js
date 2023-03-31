@@ -39,7 +39,7 @@ class ManageTasks {
   }
 
   loadTasksFromLocalStorage() {
-    const storedTasks = JSON.parse(this.localStorage.getItem('tasks'));
+    const storedTasks = JSON.parse(window.localStorage.getItem('tasks'));
     if (storedTasks) {
       return storedTasks;
     }
