@@ -1,6 +1,8 @@
 import './styles.css';
 import ManageTasks from './manage_tasks.js';
 
+const taskManager = new ManageTasks([]);
+
 const toDoList = document.getElementById('to-do-list');
 const toDoForm = document.getElementById('to-do-form');
 const toDoInput = document.getElementById('to-do-input');
@@ -24,7 +26,7 @@ function populateTaskList(arr) {
     // Save edited task on enter key press
     taskDescription.addEventListener('keypress', (event) => {
       if (event.key === 'Enter') {
-        const index = task.index;
+        const { index } = task; // object destructuring due to ESLint
         const newDescription = taskDescription.textContent.trim();
         taskManager.editTask(index, newDescription);
         // Remove focus from the edited element
@@ -63,9 +65,7 @@ function populateTaskList(arr) {
 }
 
 // Add event listeners
-const taskManager = new ManageTasks([]);
-
-toDoForm.addEventListener('submit', event => {
+toDoForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
   const taskDescription = toDoInput.value.trim();
@@ -76,6 +76,6 @@ toDoForm.addEventListener('submit', event => {
     const newTask = [taskManager.taskArr[taskManager.taskArr.length - 1]];
     populateTaskList(newTask);
   }
-})
+});
 
 populateTaskList(taskManager.taskArr);

@@ -1,5 +1,3 @@
-const taskArr = [];
-
 class ManageTasks {
   constructor() {
     this.taskArr = this.loadTasksFromLocalStorage();
@@ -10,7 +8,8 @@ class ManageTasks {
       description: taskDescrption,
       completed: false,
       index: this.taskArr.length,
-    }
+    };
+
     this.taskArr.push(newTask);
     this.storeTasksInLocalStorage();
   }
@@ -40,7 +39,7 @@ class ManageTasks {
   }
 
   loadTasksFromLocalStorage() {
-    const storedTasks = JSON.parse(localStorage.getItem('tasks'));
+    const storedTasks = JSON.parse(this.localStorage.getItem('tasks'));
     if (storedTasks) {
       return storedTasks;
     }
@@ -49,4 +48,3 @@ class ManageTasks {
 }
 
 export default ManageTasks;
-
