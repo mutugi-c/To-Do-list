@@ -24,8 +24,8 @@ function populateTaskList(arr) {
     // Save edited task on enter key press
     taskDescription.addEventListener('keypress', (event) => {
       if (event.key === 'Enter') {
-        const index = task.index; // object destructuring due to ESLint
-        const newDescription = taskDescription.textContent.trim().substring(2);;
+        const { index } = task; // object destructuring due to ESLint
+        const newDescription = taskDescription.textContent.trim().substring(2);
         taskManager.editTask(index, newDescription);
         // Remove focus from the edited element
         taskDescription.blur();
