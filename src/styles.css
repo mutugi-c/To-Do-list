@@ -117,11 +117,6 @@ input {
 }
 
 /* Icons */
-.fa-check {
-  color: #5490ffda;
-  display: none;
-}
-
 .fa-sync-alt,
 .fa-arrow-left {
   opacity: 0.5;
