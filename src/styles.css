@@ -69,17 +69,6 @@ input {
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-.to-do-item .check-button {
-  margin-right: 1rem;
-}
-
-.to-do-item .task-description {
-  flex-grow: 1;
-  outline: none;
-  position: relative;
-  z-index: 1;
-}
-
 .to-do-item .edit-input {
   position: absolute;
   top: 0;
@@ -101,6 +90,10 @@ input {
 
 .check-button:hover {
   border: 2px solid #808080;
+}
+
+.to-do-item .check-button {
+  margin-right: 1rem;
 }
 
 .clear-completed {
@@ -163,4 +156,11 @@ input {
   font-family: "Open Sans", sans-serif;
   font-weight: 300;
   font-size: 1rem;
+}
+
+.to-do-item .task-description {
+  flex-grow: 1;
+  outline: none;
+  position: relative;
+  z-index: 1;
 }
