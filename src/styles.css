@@ -142,9 +142,15 @@ input {
 }
 
 .trash-icon {
-  color: rgb(197, 85, 85);
+  cursor: pointer;
   display: none;
+  opacity: 0.5;
   width: 0.625rem;
+  transition: opacity 0.3s;
+}
+
+.trash-icon:hover {
+  opacity: 1;
 }
 
 .to-do-item.active .trash-icon {
