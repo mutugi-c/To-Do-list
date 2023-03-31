@@ -38,6 +38,7 @@ class ManageTasks {
     localStorage.setItem('tasks', JSON.stringify(this.taskArr));
   }
 
+  // eslint-disable-next-line class-methods-use-this
   loadTasksFromLocalStorage() {
     const storedTasks = JSON.parse(window.localStorage.getItem('tasks'));
     if (storedTasks) {
