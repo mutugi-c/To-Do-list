@@ -10,7 +10,7 @@ li {
 
 /* Typograpphy */
 body {
-  background-color: bisque;
+  background-color: #c1c1c3;
   color: #545862;
   font-size: 1rem;
   font-family: "Open Sans", sans-serif;
@@ -33,31 +33,48 @@ h1 {
 
 /* Heading */
 .to-do-header {
+  border-bottom: 1px solid #c1c1c3;
   display: flex;
   justify-content: space-between;
   padding: 1rem;
 }
 
 /* Form */
-.to-do-form {
+#to-do-form {
+  align-items: center;
+  border-bottom: 1px solid #c1c1c3;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
-  padding: 0 0.5rem 0 1rem;
+  padding: 0.9rem 0.9rem 0.9rem 1rem;
+}
+
+input {
+  background: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
 }
 
 .to-do-add {
-  border: 0;
   font-style: italic;
 }
 
 /* List */
 .to-do-item {
+  position: relative;
+  display: flex;
   align-items: center;
-  display: grid;
-  grid-template-columns: 3fr 25fr 1fr;
   padding: 1rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.to-do-item .edit-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
 }
 
 /* Buttons */
@@ -75,6 +92,10 @@ h1 {
   border: 2px solid #808080;
 }
 
+.to-do-item .check-button {
+  margin-right: 1rem;
+}
+
 .clear-completed {
   border: 0;
   cursor: pointer;
@@ -89,18 +110,18 @@ h1 {
   opacity: 0.8;
 }
 
-/* Icon */
-.fa-check {
-  color: #5490ffda;
-  display: none;
+#to-do-submit {
+  background-color: transparent;
+  outline: none;
+  border: none;
 }
 
+/* Icons */
 .fa-sync-alt,
 .fa-arrow-left {
   opacity: 0.5;
 }
 
-/* Vertical ellipsis */
 .fa-ellipsis-v {
   color: #c1c1c3;
   transition: all 0.5s;
@@ -111,9 +132,36 @@ h1 {
   opacity: 0.3;
 }
 
+.fa-ellipsis-v.hide {
+  display: none;
+}
+
+.trash-icon {
+  cursor: pointer;
+  display: none;
+  opacity: 0.5;
+  width: 0.625rem;
+  transition: opacity 0.3s;
+}
+
+.trash-icon:hover {
+  opacity: 1;
+}
+
+.to-do-item.active .trash-icon {
+  display: inline-block;
+}
+
 /* Task description */
 .task-description {
   font-family: "Open Sans", sans-serif;
   font-weight: 300;
   font-size: 1rem;
+}
+
+.to-do-item .task-description {
+  flex-grow: 1;
+  outline: none;
+  position: relative;
+  z-index: 1;
 }

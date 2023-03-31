@@ -15,7 +15,7 @@
       rel="stylesheet"
     />
     <title>To Do list</title>
-  </head>
+  <script defer src="main.js"></script></head>
   <body>
     <div class="to-do-container">
       <!-- Header section -->
@@ -25,23 +25,24 @@
       </article>
 
       <!-- Form -->
+      <article>
+        <form class="to-do-form">
+          <input
+            id="to-do-input"
+            class="to-do-add"
+            type="text"
+            placeholder="Add your task ..."
+          />
 
-      <form id="to-do-form">
-        <input
-          id="to-do-input"
-          class="to-do-add"
-          type="text"
-          placeholder="Add your task ..."
-        />
-
-        <button
-          id="to-do-submit"
-          type="submit"
-          title="click this or press enter to submit"
-        >
-          <i class="fas fa-arrow-left"></i>
-        </button>
-      </form>
+          <button
+            id="to-do-submit"
+            type="submit"
+            title="click this or press enter to submit"
+          >
+            <i class="fas fa-arrow-left"></i>
+          </button>
+        </form>
+      </article>
 
       <!-- To do list -->
       <ul id="to-do-list"></ul>
