@@ -29,9 +29,8 @@ class ManageTasks {
     this.storeTasksInLocalStorage();
   }
 
-  completedTask(index) {
-    this.taskArr[index].completed = true;
-    this.taskArr[index - 1].completed = true;
+  completedTask(index, completed) {
+    this.taskArr[index].completed = completed;
     this.storeTasksInLocalStorage();
   }
 
