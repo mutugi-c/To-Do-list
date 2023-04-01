@@ -1,5 +1,6 @@
 import './styles.css';
 import ManageTasks from './manage_tasks.js';
+import { toggleCompleted, clearCompleted } from './modules/checkTaskCompletion.js';
 
 const taskManager = new ManageTasks([]);
 
@@ -59,10 +60,29 @@ function populateTaskList(arr) {
       taskManager.removeTask(task.index);
       toDoItem.remove();
     });
+
+    // Add event listener to check-button
+    const checkButton = toDoItem.querySelector('.check-button');
+    checkButton.addEventListener('click', () => {
+      const index = parseInt(toDoItem.dataset.index);
+      toggleCompleted(toDoList, taskManager, index);
+    });
+
+    toDoItem.dataset.index = taskManager.taskArr.indexOf(task);
+
   });
 }
 
-// Add event listeners
+// Call function to update completed status
+toggleCompleted(toDoList, taskManager);
+
+// Add event listeners for completed clear button
+const clearCompletedButton = document.getElementById('clear-completed');
+clearCompletedButton.addEventListener('click', () => {
+  clearCompleted(toDoList, taskManager);
+});
+
+// Add event listener for submission
 toDoForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
