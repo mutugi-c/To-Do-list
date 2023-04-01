@@ -16,7 +16,6 @@ const toggleCompleted = (toDoList, taskManager, index) => {
   }
 };
 
-
 // Remove tasks identified as completed
 const clearCompleted = (toDoList, manageTasks) => {
   const toDoItems = toDoList.querySelectorAll('.to-do-item');
