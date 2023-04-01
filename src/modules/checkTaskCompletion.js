@@ -1,18 +1,24 @@
 // Update completed status
-const toggleCompleted = () => {
-  const toDoItems = toDoList.querySelectorAll('.to-do-item');
-  toDoItems.forEach((toDoItem) => {
-    const checkButton = toDoItem.querySelector('.check-button');
-    if (checkButton.checked) {
-      toDoItem.classList.add('completed');
-    } else {
-      toDoItem.classList.remove('completed');
-    }
-  });
+const toggleCompleted = (toDoList, taskManager, index) => {
+  const toDoItem = toDoList.querySelector(`[data-index="${index}"]`);
+  if (!toDoItem) {
+    return;
+  }
+  const checkButton = toDoItem.querySelector('.check-button');
+  if (checkButton.checked) {
+    toDoItem.classList.add('completed');
+    taskManager.completedTask(index, true);
+    taskManager.storeTasksInLocalStorage();
+  } else {
+    toDoItem.classList.remove('completed');
+    taskManager.completedTask(index, false);
+    taskManager.storeTasksInLocalStorage();
+  }
 };
 
+
 // Remove tasks identified as completed
-const clearCompleted = () => {
+const clearCompleted = (toDoList, manageTasks) => {
   const toDoItems = toDoList.querySelectorAll('.to-do-item');
   toDoItems.forEach((toDoItem) => {
     const checkButton = toDoItem.querySelector('.check-button');
